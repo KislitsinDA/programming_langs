@@ -11,18 +11,11 @@ int main() {
     array[i] = rand() % 100;
   }
 
-  FILE *fp = fopen("nums.txt", "w");
-  if (fp == NULL) {
-    printf("Ошибка открытия файла!\n");
-    return 1;
+  for (int i = n; i < 0; i++) {
+    printf("%d ", array[i]);
   }
-
-  for (int i = n - 1; i >= 0; i--) {
-    fprintf(fp, "%d\n", array[i]);
-  }
-
-  fclose(fp);
-  printf("Числа записаны в файл 'nums.txt' в обратном порядке.\n");
+  printf("\n");
+  
   return 0;
 }
 
