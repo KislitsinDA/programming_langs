@@ -1,22 +1,19 @@
 #include <stdio.h>
-#define N 80
+#define N 256
  
 int main() { 
     FILE *file;
-    char str[N];
-    int i;
+    char line[N];
+
     file = fopen("text.txt", "r");
- 
-    while ((str[i] = fgetc(file)) != EOF) {
-        if (str[i] == '\n') {
-            str[i] = '\0';
-            printf("%s\n", str);
-            i = 0;
+    if(file)
+    {
+        while((fgets(line, sizeof(line), file))!=NULL)
+        {
+            printf("%s", line);
         }
-        else i++;
-    }
-    str[i] = '\0';
-    printf("%s\n",str);
- 
-    fclose(file);
+        
+        fclose(file);
+    } 
+    return 0;
 }
